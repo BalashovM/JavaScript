@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Скрипты -->
+    
+    <!-- -->
+
+</head>
+
+<style type="text/css">
+     .tab { margin-left: 40px; }
+</style>
+
+<body>
+    <h1>GeekBrains - JavaScript - Урок 1</h1>
+
+<ul>
+    <li>
+        <h2>Задание 01</h2>
+        <script src="script01.js" type="text/javascript" charset="utf-8"></script>
+        <p>Задать температуру в градусах по Цельсию. 
+            <br>Вывести в <b>alert</b> соответствующую температуру в градусах по Фаренгейту. 
+            <br>Расчет температуры по Фаренгейту выполнить по формуле <b>Tf = (9 / 5) * Tc + 32</b>, 
+            <br>где :
+            <p class="tab">
+                <b>Tf</b> — температура по Фаренгейту
+                <br><b>Tc</b> — по Цельсию.
+            </p>
+        </p>
+
+        <input type="button" value="Запустить скрипт" onclick="Script01('hidden_div_01')">
+       
+        <div id="hidden_div_01" style = "display: none">
+            <h3><p>Результат работы скрипта <a href="script01.js" type="text/javascript"><i>script01.js</i></a> :</p></h3>
+            <p id=text_01_01></p>
+            <p id=text_01_02></p>
+        </div>
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 02</h2>
+        <script async src="script02.js" type="text/javascript" charset="utf-8"></script>
+
+        <p>Объявить две переменные: <b>admin</b> и <b>name</b>. 
+            <br> Зпросить имя у пользователя, записать в <b>name</b> введенное имя; 
+            <br>Скопировать значение из <b>name</b> в <b>admin</b>. 
+            <br>Вывести <b>admin</b> (должно вывести введенное имя).
+        </p>
+
+        <input type="button" value="Запустить скрипт" onclick="Script02('hidden_div_02')">
+        
+        <div id="hidden_div_02" style = "display: none">
+            <h3><p>Результат работы скрипта <a href="script02.js" type="text/javascript"><i>script02.js</i></a> :</p></h3>
+            <p>Переменная <b>name</b> содержит значение:<b><var id=text_02_01></var></b></p>
+            <p>После присвоения переменной <b>admin</b> значения переменной <b>name,</b> переменная <b>admin</b> содержит значение:<b><var id=text_02_02></var></b></p>
+
+        </div>
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 03</h2>
+        <script async src="script03.js" type="text/javascript" charset="utf-8"></script>
+
+        <p>Чему будет равно JS-выражение <b>1000 + "108"?</b></p>
+        <p>Т.к. складываются значения разных типов, то будет произведено преобразование числового типа в строку и в результате произведена конкатенация двух строк.</p>
+        
+        <input type="button" value="Запустить скрипт" onclick="Script03('hidden_div_03')">
+
+        <div id="hidden_div_03" style = "display: none">
+            <h3><p>Результат работы скрипта <a href="script03.js" type="text/javascript"><i>script03.js</i></a> :</p></h3>
+            <p>Результат сложения: <b> <var id=text_03_01></var></b>
+                <br>Тип результата: <b><var id=text_03_02></var></b>
+            </p>
+        </div>
+        <hr>
+    </li>
+      <script>
+        function showMe(blockName) {
+            var hiddenBlock = document.getElementById(blockName);
+
+            if(hiddenBlock.style.display == '' || hiddenBlock.style.display == 'none'){
+                hiddenBlock.style.display = 'block';
+            }
+            else {
+                hiddenBlock.style.display = 'none';
+            }
+        }
+      </script>
+
+    <li>
+        <h2>Задание 04</h2>
+        <p>Самостоятельно разобраться с атрибутами тега <b>script (async и defer)</b>.</p>
+        <ul>
+            <li>
+                <h2><span id="SpecialSpan"
+                    onmouseover="this.style.cursor='pointer'"
+                    onmouseout="this.style.cursor='default'"
+                    onclick="showMe('hidden_div_04')";>
+                DEFER</span></h2>
+                <div id="hidden_div_04" style = "display: none">
+                    <p>Атрибут <b>defer</b> откладывает выполнение скрипта до тех пор, пока вся страница не будет загружена полностью.</p>
+                    <p>Т.е. атрибут <b>defer</b> сообщает браузеру, что тот должен продолжать обрабатывать страницу, 
+                        а скрипт загружать в фоновом режиме и запустить скрипт, когда он полностью загрузится.
+                    </p>
+                    <p>Обычно этот атрибут применяется для, для избегания блокировки страницы при загрузке скриптов большого объема.</p>
+                    <p>Если атрибутом помечено несколько скриптов, то загружаться они будут параллельно, а выполняться последовательно, 
+                        в порядке их расположения в коде страницы.
+                    </p>
+                    <p>Атрибут предназначен только для внешних скриптов.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                <h2><span id="SpecialSpan"
+                    onmouseover="this.style.cursor='pointer'"
+                    onmouseout="this.style.cursor='default'"
+                    onclick="showMe('hidden_div_05')";>
+                    ASYNC</span></h2>
+                    <div id="hidden_div_05" style = "display: none">
+                    <p>При наличии атрибута <b>async</b> браузер при возможности запускает скрипт асинхронно. 
+                        Это означает, что указанный в атрибуте src файл будет выполняться без ожидания загрузки и отображения веб-страницы. 
+                        В то же время и страница не ожидает результата выполнения скрипта, а продолжает загружаться как обычно.
+                    </p>
+                    <p>Т.е. атрибут <b>async</b> указывает, что скрипт независим от содержимого страницы.</p>
+                    <p>Скрипты помеченные этим атрибутом, так же будут загружаться параллельно, и не будут тормозить загрузку страницы, 
+                        но в отличие от помеченных <b>defer</b>, будут выполняться параллельно и в порядке загрузки не ожидая загрузки других скриптов.
+                    </p>
+                </div>
+            </li>
+
+        </ul>
+        <hr>
+    </li>
+</ul>    
+
+</body>
+</html>
