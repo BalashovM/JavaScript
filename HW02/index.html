@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Скрипты -->
+    <script src="script_task03.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script_task04.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script_task05.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script_task06.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script_task07.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script_task08.js" type="text/javascript" charset="utf-8"></script>
+    <!-- -->
+
+    <!-- Стили -->
+    <style>
+        pre {
+          font-family: Consolas,"courier new";
+          color: black;
+          background-color: #eeeeee;
+          padding: 2px;
+          font-size: 90%;
+        }
+    </style>
+    <!-- -->
+
+
+</head>
+<body>
+    <h1>GeekBrains - JavaScript - Урок 2</h1>
+
+<ul>
+    <li>
+        <h2>Задание 01</h2>
+        <p>Почему код дает именно такие результаты?</p>
+        <pre>
+var a = 1, b = 1, c, d;
+
+1) c = ++a; alert(c);           
+    результат выражения = 2 
+    описание - сначала происходит инкремент переменной 'a', затем ее значение присваивается переменной 'c' (a=2, c=2)
+2) d = b++; alert(d);           
+    результат выражения = 1 
+    описание - сначала переменной 'd' присваивается значение из 'b', затем происходит инкремент 'b' (d=1, b=2)
+3) c = (2+ ++a); alert(c);      
+    результат выражения = 5 
+    описание - сначала происходит инкремент 'a' затем ее значение складывается с '2', результат присваивается в 'c' (c=5, a=3)
+4) d = (2+ b++); alert(d);      
+    результат выражения = 4 
+    описание - сначала '2' складывается с значением из 'b' (результат сложения помещается в 'd'), значение в 'b' инкрементируется (d=4, b=3)
+5) alert(a);                    
+    результат выражения = 3 
+    описание - значение переменной 'a' было дважды инкрементировано в действиях 1 и 3
+6) alert(b);                    
+    результат выражения = 3 
+    описание -значение переменной 'b' было дважды инкрементировано в действиях 2 и 4
+        </pre>
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 02</h2>
+        <p>Чему будет равен x?</p>
+        <pre>
+var a = 2;
+var x = 1 + (a *= 2);            
+    результат выражения = 5
+    описание - сначала переменная 'a' будет умножена на 2, далее к результату прибаляется 1 (a=4, x=5)
+        </pre>
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 03</h2>
+        <p>Объявить две целочисленные перменные - a и b и задать им произвольные начальные значения. 
+            Затем написать скрипт, который работает по следующему принципу:
+        </p>
+        <ul>
+            <li>если a и b положительные, вывести их разность;</li>
+            <li>если a и b отрицательные, вывести их произведение;</li>
+            <li>если a и b разных знаков, вывести их сумму;</li>
+        </ul>
+        <p>Ноль можно считать положительным числом.</p>
+        <h3><p>Результат работы скрипта <a href="script_task03.js" type="text/javascript"><i>script_task03.js</i></a> :
+                <input type="button" value="Запустить скрипт" onclick="Script_task03()"></p>
+        </h3>
+            <p><span id="task03_text01"></span></p>
+            <p><span id="task03_text02"></span></p>
+            <p><span id="task03_text03"></span></p>
+            <p><span id="task03_text04"></span></p>
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 04</h2>
+        <p> Присвоить переменной a значение в промежутке [0...15]. 
+            С помощью оператора switch организовать вывод чисел от a до 15.
+        </p>
+
+        <h3><p>Результат работы скрипта <a href="script_task04.js" type="text/javascript"><i>script_task04.js</i></a> :
+                <input type="button" value="Запустить скрипт" onclick="Script_task04()"></p>
+        </h3>
+
+        <p><span id="task04_text01"></span></p>
+        <p><span id="task04_text02"></span></p>
+        <p><span id="task04_text03"></span></p>
+
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 05</h2>
+        <p> Реализовать четыре основные арифметические операции в виде функций с двумя параметрами. 
+            Обязательно использовать оператор return.
+        </p>
+
+        <h3><p>Результат работы скрипта <a href="script_task05.js" type="text/javascript"><i>script_task05.js</i></a> :
+                <input type="button" value="Запустить скрипт" onclick="Script_task05()"></p>
+        </h3>
+
+        <p><span id="task05_text01"></span></p>
+        <p><span id="task05_text02"></span></p>
+        <p><span id="task05_text03"></span></p>
+        <p><span id="task05_text04"></span></p>
+        <p><span id="task05_text05"></span></p>
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 06</h2>
+        <p> Реализовать четыре основные арифметические операции в виде функций с двумя параметрами. 
+            Обязательно использовать оператор return.
+        </p>
+
+        <h3><p>Результат работы скрипта <a href="script_task06.js" type="text/javascript"><i>script_task06.js</i></a> :
+                <input type="button" value="Запустить скрипт" onclick="Script_task06()"></p>
+        </h3>
+
+        <p><span id="task06_text01"></span></p>
+        <p><span id="task06_text02"></span></p>
+        <p><span id="task06_text03"></span></p>
+        <p><span id="task06_text04"></span></p>
+        <p><span id="task06_text05"></span></p>
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 07</h2>
+        <p> Сравнить null и 0. Объяснить результат.</p>
+
+        <h3><p>Результат работы скрипта <a href="script_task07.js" type="text/javascript"><i>script_task07.js</i></a> :
+                <input type="button" value="Запустить скрипт" onclick="Script_task07()"></p>
+        </h3>
+
+        <p><span id="task07_text01"></span></p>
+        <p><span id="task07_text02"></span></p>
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 08</h2>
+        <p>С помощью рекурсии организовать функцию возведения числа в степень. 
+            Формат: function power(val, pow), где val — заданное число, pow –— степень.
+        </p>
+
+        <h3><p>Результат работы скрипта <a href="script_task08.js" type="text/javascript"><i>script_task08.js</i></a> :
+                <input type="button" value="Запустить скрипт" onclick="Script_task08()"></p>
+        </h3>
+
+        <p><span id="task08_text01"></span></p>
+        <p><span id="task08_text02"></span></p>
+        <hr>
+    </li>
+
+</ul>    
+
+</body>
+</html>
