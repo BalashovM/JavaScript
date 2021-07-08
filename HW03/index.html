@@ -9,10 +9,8 @@
     <!-- Скрипты -->
     <script src="script_task01.js" type="text/javascript" charset="utf-8"></script>
     <script src="script_task02.js" type="text/javascript" charset="utf-8"></script>
-    <!--<script src="script_task05.js" type="text/javascript" charset="utf-8"></script>
-    <script src="script_task06.js" type="text/javascript" charset="utf-8"></script>
-    <script src="script_task07.js" type="text/javascript" charset="utf-8"></script>
-    <script src="script_task08.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="script_task04.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script_task05.js" type="text/javascript" charset="utf-8"></script>
     <!-- -->
 
     <!-- Стили 
@@ -50,7 +48,7 @@
             Предположим, есть сущность корзины. 
             Нужно реализовать функционал подсчета стоимости корзины в зависимости от находящихся в ней товаров.</p>
         
-            <h3><p>Cкрипт <a href="script_task02.js" type="text/javascript"><i>script_task02.js</i></a></p></h3>    
+            <h3><p>Содержимое скрипта <a href="script_task02.js" type="text/javascript"><i>script_task02.js</i></a></p></h3>    
 
             <table cellpadding="4" width="80%">
                 <tr>
@@ -94,7 +92,7 @@
                         </form>
                         <p>
                             <input type="text" name="cartAmountCaption" placeholder="Cумма товаров в корзине:"/>
-                            <input type="text" id="cartAmount" placeholder="0.00р"/><p>
+                            <input type="text" id="cartAmount" value="0.00р"/><p>
                         <p>  
                             <input style = "display: none" type="button" id="RemoveItem" value="Удалить" onclick="ShoppingCartRemoveItem()">
                             <input style = "display: none" type="button" id="removeType" value="Удалить строку" onclick="ShoppingCartRemoveType()">
@@ -108,7 +106,48 @@
             </table>
         <hr>
     </li>
+    <li>
+        <h2>Задание 03</h2>
+        <p>3. Товары в корзине хранятся в массиве. Задачи:
+            <br>a) Организовать такой массив для хранения товаров в корзине;
+            <br>b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.</p>
+        
+        <p><b>Содержимое корзины</b></p>
+        <p><span id="task03_text01"></span></p>
+    
+        <p><b>Стоимость всех товаров в корзине: <span id="task03_text02"></span> руб.</b></p>
+    
+        <input type="text" id="goodName" value="Супер товар"/>
+        <input type="number" id="goodPrice" value="100" min="0"/>
+        <input type="button" value="Добавить товар в корзину" onclick="addGood()"></p>
 
+        
+        <h3><p>Содержимое скрипта <a href="script_task03.js" type="text/javascript"><i>script_task03.js</i></a> :
+        </h3>
+        <script async src="script_task03.js" type="text/javascript" charset="utf-8"></script>
+        <hr>
+    </li>
+
+    
+    <li>
+        <h2>Задание 04</h2>
+        <p>Вывести с помощью цикла <b>for</b> числа от <b>0</b> до <b>9</b>, не используя тело цикла.</p>
+        <h3><p>Результат работы скрипта <a href="script_task04.js" type="text/javascript"><i>script_task04.js</i></a> :
+        </h3>
+        <p>|<span id="task04_text01"></span></p>
+        <script async src="script_task04.js" type="text/javascript" charset="utf-8"></script>
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 05</h2>
+        <p>Нарисовать пирамиду из символов Х в <b>20</b> рядов</p>
+        <h3><p>Результат работы скрипта <a href="script_task05.js" type="text/javascript"><i>script_task05.js</i></a> :
+        </h3>
+        <p><span id="task05_text01"></span></p>
+        <script async src="script_task05.js" type="text/javascript" charset="utf-8"></script>
+        <hr>
+    </li>
     
 </ul>    
 

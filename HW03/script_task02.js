@@ -1,23 +1,21 @@
-﻿var PList = new Object();  
-PList.names = {
+﻿var ProductList = new Object();  
+ProductList.names = {
     "pineapple": "Ананас",
     "bananas": "Бананы",
     "grapes": "Виноград",
 };
-PList.costs = {
+ProductList.costs = {
     "pineapple": 120.20,
     "bananas": 70.60,
     "grapes": 95.80,
    };
 
 function ShoppingCartAddItem(){
-
-    //debugger
     var foodType= document.getElementById("food_type");
     var selectedIndex = foodType.selectedIndex;
-    var name = foodType.options[selectedIndex].value;
-    var caption = PList.names[name];
-    var cost = PList.costs[name];
+    var productName = foodType.options[selectedIndex].value;
+    var caption = ProductList.names[productName];
+    var cost = ProductList.costs[productName];
     var cartList = document.getElementById("cart_list");
     var cartListLenght = cartList.length;
     var findString = caption + " " + cost.toString() + "р";
@@ -27,25 +25,24 @@ function ShoppingCartAddItem(){
     var lineAmount = 0;
 
     for(var i = 0; i < cartListLenght; i++){
-        
-        var lineSumPosEnd = cartList[i].text.lastIndexOf("р");
-        var lineSumPosBegin = cartList[i].text.lastIndexOf(" ",lineSumPosEnd);
-        lineAmount = Number(cartList[i].text.slice(lineSumPosBegin, lineSumPosEnd));
+        var cartLineText = cartList[i].text;
+        var lineSumPosEnd = cartLineText.lastIndexOf("р");
+        var lineSumPosBegin = cartLineText.lastIndexOf(" ",lineSumPosEnd);
+        lineAmount = Number(cartLineText.slice(lineSumPosBegin, lineSumPosEnd));
 
-        if(cartList[i].value == name)
+        if(cartList[i].value == productName)
         {
             isExist = true;
-
-            var carLineText = cartList[i].text;
-            var posPiecesNameEnd = carLineText.indexOf("шт");
-            var posPiecesNameBegin = carLineText.lastIndexOf(" ",posPiecesNameEnd);
-            var valuePieces = Number(carLineText.slice(posPiecesNameBegin, posPiecesNameEnd));
+            
+            var posPiecesNameEnd = cartLineText.indexOf("шт");
+            var posPiecesNameBegin = cartLineText.lastIndexOf(" ",posPiecesNameEnd);
+            var valuePieces = Number(cartLineText.slice(posPiecesNameBegin, posPiecesNameEnd));
 
             valuePieces = valuePieces + 1;
             lineAmount = Number((cost * valuePieces).toFixed(2));
-            caption = findString + " " + valuePieces.toString() + " шт = " + lineAmount.toString() + "р";
+            caption = findString + " " + valuePieces.toString() + "шт = " + lineAmount.toString() + "р";
             
-            var updateOption = new Option(caption,name);
+            var updateOption = new Option(caption,productName);
             cartList[i] = updateOption;
 
             cartAmount = cartAmount + lineAmount;
@@ -63,11 +60,11 @@ function ShoppingCartAddItem(){
         lineAmount = cost;
         cartAmount = cartAmount + lineAmount;
         caption = findString + " 1шт = " + lineAmount.toString()+"р";
-        var newOption = new Option(caption,name);
+        var newOption = new Option(caption,productName);
         cartList[cartList.length] = newOption;
     }
-
-    document.getElementById("cartAmount").placeholder = (cartAmount.toString()+"р");
+    
+    document.getElementById("cartAmount").value = (cartAmount.toString()+"р");
 
     document.getElementById("RemoveItem").style.display = 'inline';
     document.getElementById("removeType").style.display = 'inline';
@@ -78,18 +75,32 @@ function ShoppingCartAddItem(){
 
     var cartList = document.getElementById("cart_list");
     var selectedIndex = cartList.selectedIndex;
-    var name = cartList[selectedIndex].value;
-    var caption = PList.names[name];
-    var cost = PList.costs[name];
+    var productName = "";
+    var cartLineText = cartList[selectedIndex].text;
+    var posPiecesNameEnd = cartLineText.indexOf(" ");
+    if(!isNaN(cartLineText.slice(posPiecesNameEnd+1,posPiecesNameEnd+2)) 
+        && isNaN(cartLineText.slice(posPiecesNameEnd-1,posPiecesNameEnd))){
+       productCaption =  cartLineText.slice(0,posPiecesNameEnd);      
+    
+
+        for (listName in ProductList.names) {
+            if (ProductList.names[listName] == productCaption) 
+                productName = listName;
+        }
+    }
+    else
+        productName = cartList[selectedIndex].value;
+
+    var caption = ProductList.names[productName];
+    var cost = ProductList.costs[productName];
     var findString = caption + " " + cost.toString()+"р";
-    //cartList[selectedIndex] 
     var tail = cartList[selectedIndex].text.slice(findString.length); 
     var posPiecesName = tail.indexOf('шт');
     var valuePieces = Number(tail.slice(0, posPiecesName));
     if(valuePieces > 1){
         valuePieces = valuePieces - 1;
-        caption = findString + " " + valuePieces.toString() + " шт = " + (cost * valuePieces).toFixed(2).toString() + "р";
-        var updateOption = new Option(caption,name);
+        caption = findString + " " + valuePieces.toString() + "шт = " + (cost * valuePieces).toFixed(2).toString() + "р";
+        var updateOption = new Option(caption,productName);
 
         cartList[selectedIndex] = updateOption; 
     }
@@ -101,7 +112,10 @@ function ShoppingCartAddItem(){
         document.getElementById("removeType").style.display = 'none';
         document.getElementById("clearCart").style.display = 'none'; 
     }
-    document.getElementById("cartAmount").text = (calcCart() + "р"); 
+    
+    var carAmount = calcCart();
+
+    document.getElementById("cartAmount").value = (carAmount.toString() + "р"); 
  }
 
  function ShoppingCartRemoveType(){
@@ -116,7 +130,9 @@ function ShoppingCartAddItem(){
         document.getElementById("removeType").style.display = 'none';
         document.getElementById("clearCart").style.display = 'none'; 
     }
-    document.getElementById("cartAmount").text = (calcCart() + "р"); 
+    var carAmount = calcCart();
+
+    document.getElementById("cartAmount").value = (carAmount.toString() + "р"); 
  }
 
  function ClearShoppingCart(){
@@ -131,7 +147,7 @@ function ShoppingCartAddItem(){
     document.getElementById("removeType").style.display = 'none';
     document.getElementById("clearCart").style.display = 'none'; 
 
-    document.getElementById("cartAmount").text = "0.00р";
+    document.getElementById("cartAmount").value = "0.00р";
  }
 
  function calcCart(){
@@ -140,32 +156,12 @@ function ShoppingCartAddItem(){
     var cartAmount = 0;
 
     for(var i=0;i<cartListLenght;i++){
-        var name = cartList[i].value;
-        var caption = PList.names[name];
-        var cost = PList.costs[name];
-        var findString = caption + " " + cost.toString()+"р";
-        var tail = cartList[i].text.slice(findString.length); 
-        var posPiecesName = tail.indexOf('шт');
-        var valuePieces = Number(tail.slice(0, posPiecesName));
-        var lineAmount = (cost * valuePieces).toFixed(2);
-        
+        var carLineText = cartList[i].text;
+        var lineSumPosEnd = carLineText.lastIndexOf("р");
+        var lineSumPosBegin = carLineText.lastIndexOf(" ",lineSumPosEnd);
+        lineAmount = Number(carLineText.slice(lineSumPosBegin, lineSumPosEnd));
+       
         cartAmount = cartAmount + lineAmount;
     }
     return cartAmount;
  }
-/*
-function Script_task02() {
-    //Инициализируем переменные
-    var result = "";
-    var i=0;
-
-    while(i<=100){
-
-        if(NumIsSimple(i))
-            result += i.toString() + " ";
-        i++;
-    }
-
-    //Вывод результата на html-страницу
-    document.getElementById("task01_text01").innerHTML = ("Простые числа от 0 до 100 :<br><br>" + result);
-}*/
