@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Скрипты -->
+    <script src="script_task01.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script_task02.js" type="text/javascript" charset="utf-8"></script>
+    <!--<script src="script_task05.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script_task06.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script_task07.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script_task08.js" type="text/javascript" charset="utf-8"></script> -->
+    <!-- -->
+
+    <!-- Стили 
+    <style>
+        pre {
+          font-family: Consolas,"courier new";
+          color: black;
+          background-color: #eeeeee;
+          padding: 2px;
+          font-size: 90%;
+        }
+    </style>-->
+    <!-- -->
+
+
+</head>
+<body>
+    <h1>GeekBrains - JavaScript - Урок 3</h1>
+
+<ul>
+    <li>
+        <h2>Задание 01</h2>
+        <p>С помощью цикла while вывести все простые числа в промежутке от 0 до 100</p>
+       
+        <h3><p>Результат работы скрипта <a href="script_task01.js" type="text/javascript"><i>script_task01.js</i></a> :
+                <input type="button" value="Запустить скрипт" onclick="Script_task01()"></p>
+        </h3>
+			<p><span id="task01_text01"></span></p>
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 02</h2>
+        <p>С этого урока начинаем работать с функционалом интернет-магазина. 
+            Предположим, есть сущность корзины. 
+            Нужно реализовать функционал подсчета стоимости корзины в зависимости от находящихся в ней товаров.</p>
+        
+            <h3><p>Cкрипт <a href="script_task02.js" type="text/javascript"><i>script_task02.js</i></a></p></h3>    
+
+            <table cellpadding="4" width="80%">
+                <tr>
+                    <td><b>Список продуктов</b></td>
+                    <td><b>Корзина</b></td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <form name="foodList" id="food_list"></form>
+                            <select name="food" id="food_type">
+                                <option value="none" hidden="">Выберите тип</option>
+                                <option value="pineapple">
+                                    <column>Ананас</column>
+                                    <column>120.20</column>
+                                </option>
+                                <option value="bananas">
+                                    <column id=1>Бананы</column>
+                                    <column id=2>70.60</column>
+                                </option>
+                                <option value="grapes">
+                                    <column>Виноград</column>
+                                    <column>95.80</column>
+                                </option>
+                            </select>
+                        </form>
+                        <br>
+                        <p>
+                            <input type="button" name ="AddItem" value="Добавить" onclick="ShoppingCartAddItem()">
+                        </p>
+                    </td>
+
+                    <td>
+                        <form name="ShoppingCart" id="shopping_cart">
+                            <select id="cart_list" size="5">
+                                <option value="none">
+                                    <column>Пусто</column>
+                                    <column>0.00р</column>
+                                    <column>0шт</column>
+                                </option>
+                            </select> 
+                        </form>
+                        <p>
+                            <input type="text" name="cartAmountCaption" placeholder="Cумма товаров в корзине:"/>
+                            <input type="text" id="cartAmount" placeholder="0.00р"/><p>
+                        <p>  
+                            <input style = "display: none" type="button" id="RemoveItem" value="Удалить" onclick="ShoppingCartRemoveItem()">
+                            <input style = "display: none" type="button" id="removeType" value="Удалить строку" onclick="ShoppingCartRemoveType()">
+                        </p>
+                        <p>  
+                            <input style = "display: none" type="button" id="clearCart" value="Очистить корзину" onclick="ClearShoppingCart()">
+                        </p>
+                    </td>
+                </tr>
+
+            </table>
+        <hr>
+    </li>
+
+    
+</ul>    
+
+</body>
+</html>
