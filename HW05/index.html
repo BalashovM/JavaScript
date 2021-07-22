@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>GeekBrains - JavaScript - Урок 5</h1>
+
+    <h2>Задание</h2>
+    <ol>
+        <li><p>Создать функцию, генерирующую шахматную доску. 
+                При этом можно использовать любые html-теги по своему желанию. 
+                Доска должна быть разлинована соответствующим образом, т.е. чередовать черные и белые ячейки. 
+                Строки должны нумероваться числами от 1 до 8, столбцы – 
+                латинскими буквами A, B, C, D, E, F, G, H.</p>
+        </li>
+        <li><p>Заполнить созданную таблицу буквами, отвечающими за шахматную фигуру, 
+                например К – король, Ф – ферзь и т.п., причем все фигуры должны стоять 
+                на своих местах и быть соответственно черными и белыми.</p>
+        </li>
+        <li><p>Заменить буквы, обозначающие фигуры, картинками.</p>
+        </li>
+    </ol>
+
+    <input type="button" value="Создать пустую шахматную доску" onclick="DrawBoard()">
+    <input type="button" value="Расставить фигуры (буквы)" onclick="PlaceFiguresAsLetters()">
+    <input type="button" value="Расставить фигуры (картинки)" onclick="PlaceFiguresAsPictures()">
+
+    <div id="chessBoard"></div>
+    <div id="letterNote" style = "display: none">
+        <p>Обозначения фигур: P - пешка; R - ладья; B - слон; N - конь; Q - ферзь; K - король</p>
+    </div>
+    
+    <h3><p>Содержимое скрипта <a href="script_tasks.js" type="text/javascript"><i>script_tasks.js</i></a> :
+    </h3>
+    <hr>
+
+    <script async src="script_tasks.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
