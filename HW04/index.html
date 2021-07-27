@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Скрипты -->
+    <script src="script_task01.js" type="text/javascript" charset="utf-8"></script>
+   
+    <script src="script_task03.js" type="text/javascript" charset="utf-8"></script>
+    <!-- -->
+
+</head>
+<body>
+    <h1>GeekBrains - JavaScript - Урок 4</h1>
+
+<ul>
+    <li>
+        <h2>Задание 01</h2>
+        <p> Написать функцию, преобразующую число в объект. 
+            Передавая на вход число от <b>0</b> до <b>999</b>, надо получить на выходе объект, 
+            в котором в соответствующих свойствах описаны единицы, десятки и сотни. 
+            Например, для числа <b>245</b> надо получить 
+            следующий объект: <b>{‘единицы’: 5, ‘десятки’: 4, ‘сотни’: 2}</b>. 
+            Если число превышает <b>999</b>, необходимо выдать соответствующее сообщение 
+            с помощью <b>console.log</b> и вернуть пустой объект.
+        </p>
+       
+        <input type="number" id="inputNumber" value="456" min="0"/>
+
+        <h3><p>Результат работы скрипта <a href="script_task01.js" type="text/javascript"><i>script_task01.js</i></a> :
+                <input type="button" value="Запустить скрипт" onclick="Script_task01()"></p>
+        </h3>
+			<p><span id="task01_text01"></span></p>
+        <hr>
+    </li>
+
+    <li>
+        <h2>Задание 02</h2>
+            <p>2. Продолжить работу с интернет-магазином:
+                <br>a) В прошлом домашнем задании вы реализовали корзину на базе массивов. Какими объектами можно заменить их элементы?
+                <br>b) Реализуйте такие объекты;
+                <br>c) Перенести функционал подсчета корзины на объектно-ориентированную базу.
+            </p>
+        
+            <h3><p>Содержимое скрипта <a href="script_task02.js" type="text/javascript"><i>script_task02.js</i></a></p></h3>    
+
+            <table cellpadding="4" width="80%">
+                <tr>
+                    <td><b>Список продуктов</b></td>
+                    <td><b>Корзина</b></td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <form name="good_types_list" id="formGoodTypesList"></form>
+                            <div id="goodTypes"></div>
+                        </form>
+                        <br>
+                        <form name="good_list" id="formGoodList"></form>
+                            <div id="goods"></div>
+                        </form>
+                        <br>
+                        <p>
+                            <input type="button" name ="AddItem" value="Добавить" onclick="ShoppingCartAddItem()">
+                        </p>
+                    </td>
+
+                    <td>
+                        <form name="shopping_cart_list" id="shoppingCartList">
+                            <select id="cart" size="5">
+                                <option value="none">
+                                    <column>Пусто</column>
+                                    <column>0.00р</column>
+                                    <column>0шт</column>
+                                </option>
+                            </select> 
+
+                        </form>
+                        <p>
+                            <input type="text" name="cartAmountCaption" placeholder="Cумма товаров в корзине:"/>
+                            <input type="text" id="cartAmount" value="0.00р"/><p>
+                        <p>  
+                            <input style = "display: none" type="button" id="RemoveItem" value="Удалить" onclick="ShoppingCartRemoveItem()">
+                            <input style = "display: none" type="button" id="removeType" value="Удалить строку" onclick="ShoppingCartRemoveLine()">
+                        </p>
+                        <p>  
+                            <input style = "display: none" type="button" id="clearCart" value="Очистить корзину" onclick="ClearShoppingCart()">
+                        </p>
+                    </td>
+                </tr>
+
+            </table>
+        <hr>
+    </li>
+    <li>
+        <h2>Задание 03</h2>
+        <p>3.* Подумать над глобальными сущностями. К примеру, сущность «Продукт» в интернет-магазине актуальна не только для корзины, 
+               но и для каталога. Стремиться нужно к тому, чтобы объект «Продукт» имел единую структуру для различных модулей сайта, но в 
+               разных местах давал возможность вызывать разные методы.
+        </p>
+        
+        
+        <p> Выделить в отдельный класс продукт и отдельный класс для корзины. 
+            <br>Продукт должен иметь все свойства, как для каталога, так и для других модулей сайта.
+            <br>Набор свойств определяется необходимым функционалом.
+        </p>
+        <hr>
+    </li>
+</ul>    
+
+</body>
+<script src="script_task02.js" type="text/javascript" charset="utf-8"></script>
+</html>
