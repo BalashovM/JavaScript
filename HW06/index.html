@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script async type="module" src="scripts.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>GeekBrains - JavaScript - Урок 6</h1>
+
+    <h2>Задание</h2>
+    <ol>
+        <li><p>Продолжение реализации модуля корзины:</p>
+            <ul>
+                <li><p>Добавлять в объект корзины выбранные товары по клику на кнопке «Купить» без перезагрузки страницы;</p>
+                </li>
+                <li><p>Привязать к событию покупки товара пересчет корзины и обновление ее внешнего вида.</p>
+                </li>
+            </ul>
+        </li>
+        <li><p>У товара может быть несколько изображений. Нужно:</p>
+            <ul>
+                <li><p>Реализовать функционал показа полноразмерных картинок товара в модальном окне;</p>
+                </li>
+                <li><p>Реализовать функционал перехода между картинками внутри модального окна.</p>
+                </li>
+            </ul>
+        </li>
+    </ol>
+
+    <table cellpadding="4" width="80%">
+        <tr>
+            <td>
+                <div id="goodTypes"></div>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <div id="catalog"></div>
+            </td>
+
+            <td valign="top">
+                <div id="cart"></div>
+             </td>
+        </tr>
+
+    </table>
+
+
+    <div class="modal-closed" id="modal">
+
+        <table border="1">
+            <tr>
+                <td align="center">
+                    <div>
+                        <input id="close_button" type="button" value="Close">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <div>
+                        <div class="big_picture" id="big_picture" id="big_picture">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>s
+                    <table>
+                        <tr id="tumbnails">
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+     </div>
+
+     <h3><p>Содержимое скрипта c логикой: <a href="scripts.js" type="text/javascript"><i>scripts.js</i></a> :
+     </h3>
+     <h3><p>Содержимое скрипта с классами: <a href="classes.js" type="text/javascript"><i>classes.js</i></a> :
+     </h3>
+     <hr>
+</body>
+</html>
