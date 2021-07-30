@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script async type="module" src="scripts.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>GeekBrains - JavaScript - Урок 7</h1>
+
+    <h2>Задание</h2>
+    <ol>
+        <li><p>Добавить возможность не только смотреть состав корзины, но и редактировать его, обновляя общую стоимость или выводя сообщение «Корзина пуста».</p>
+        <p><i>Фактически было выполнено еще в задании к предыдущему уроку</i></p>
+        </li>
+        <li><p>На странице корзины:</p>
+            <ul>
+                <li><p>Сделать отдельные блоки «Состав корзины», «Адрес доставки», «Комментарий»;</p>
+                </li>
+                <li><p>Сделать эти поля сворачиваемыми;</p>
+                </li>
+                <li><p>Заполнять поля по очереди, то есть давать посмотреть состав корзины, внизу которого есть кнопка «Далее». Если нажать ее, сворачивается «Состав корзины» и открывается «Адрес доставки» и так далее.</p>
+                </li>
+            </ul>
+        </li>
+        <li><p>Для задачи со звездочкой из шестого урока реализовать функционал переключения между картинками по стрелкам на клавиатуре.</p>
+        </li>
+    </ol>
+
+    <table cellpadding="4" width="80%">
+        <tr>
+            <td>
+                <div id="goodTypes"></div>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <div id="catalog"></div>
+            </td>
+
+            <td valign="top">
+                <div id="cart"></div>
+                <div id="address" type="text" style="display:none;" value="">
+                    <p>Введите адрес доставки</p>
+                    <input type="text" id="adress-text" value=""/>
+                    <br>
+                </div>
+                <div id="comments" type="text" style="display:none;" value="">
+                    <p>Введите комментарий к заказу</p>   
+                    <input type="text" id="comment-text" value=""/>
+                    <br>  
+                </div>
+                <br>
+                <div class="prev-next-buttons" id="prev-next">
+                    <input class="prev-next-buttons" id="prev_button" type="button" style="display:none;" value="Назад">
+                    <input class="prev-next-buttons" id="next_button" type="button" style="display:none;" value="Далее">
+                </div>
+            </td>
+        </tr>
+
+    </table>
+
+
+    <div class="modal-closed" id="modal">
+
+        <table border="1">
+            <tr>
+                <td align="center">
+                    <div>
+                        <input id="close_button" type="button" value="Закрыть">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <div>
+                        <div class="big_picture" id="big_picture">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>s
+                    <table>
+                        <tr id="tumbnails">
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+     </div>
+
+     <h3><p>Содержимое скрипта c логикой: <a href="scripts.js" type="text/javascript"><i>scripts.js</i></a> :
+     </h3>
+     <h3><p>Содержимое скрипта с классами: <a href="classes.js" type="text/javascript"><i>classes.js</i></a> :
+     </h3>
+     <hr>
+</body>
+</html>
