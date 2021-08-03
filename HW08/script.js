@@ -86,7 +86,6 @@ const game = {
             this.setGameStatus(GAME_STATUS_STARTED);
             this.timeEvent = window.setInterval(game.move.bind(game), SPEED);
         }
-
     },
 
     /**
@@ -111,7 +110,6 @@ const game = {
             alert("GAME OVER");
     
             window.clearInterval(this.timeEvent);
-    
         }
     },
 
@@ -145,8 +143,6 @@ const game = {
         /* устанавливаем позицию для змейки
          * и запрашиваем координаты следующей позиции */
         snake.setDirection(direction);
-
-        //this.move();
     },
 
     /**
@@ -224,14 +220,12 @@ const game = {
 
         return isStatusSet;
     }
-
 };
 
 /**
  * Объект подсчитывающий очки в игре
  */
 const score = {
-
     /**
     * Функция ищет HTML элемент поля на странице.
     *
@@ -290,11 +284,6 @@ const score = {
  * Объект, представляющий поле, где ползает змейка.
  */
 const board = {
-
-    // cells: [
-    //     { top: 0, left: 0, className: '' }
-    // ],
-
     /**
      * Функция ищет HTML элемент поля на странице.
      *
@@ -334,8 +323,6 @@ const board = {
  * Объект, представляющий клетку на поле.
  */
 const cells = {
-    
-
     /**
      * Функция ищет HTML элементы клеток на странице.
      *
@@ -371,8 +358,6 @@ const cells = {
         return document.querySelector(`.cell[data-top="${coordinate.top}"][data-left="${coordinate.left}"]`);
     },
 
-
-
     /**
      * Функция очищает клетку по заданным координатам
      *
@@ -390,9 +375,7 @@ const cells = {
         const img = document.createElement('img');
         img.src = TILE_PATH + TILE_GROUND + TILE_EXT;;
         cell.appendChild(img);
-
     },
-
 
     /**
      * Функция задает класс для клетки по заданным координатам.
@@ -417,19 +400,17 @@ const cells = {
                 break;
             }
 
-
-        if (className == "snake") { this.renderSnake(coordinates); }
-
+        if (className == "snake") { 
+            this.renderSnake(coordinates); 
+        }
     },
 
-    
     /**
      * Функция отрисовывет змейку на поле с учетом изгибов тела
      *
      * @param coordinates {Array.<{top: number, left: number}>} Массив координат клеток для изменения.
      */
     renderSnake(coordinates) {
-
         //Хвост
         let cell = this.findCell(coordinates[0]);
         clearItem(cell);
@@ -450,12 +431,10 @@ const cells = {
 
         if (score.isHightScore)
             suffix = suffix + TILE_HIGH_SCORE;
-        
-
+ 
         img = document.createElement('img');
         img.src = TILE_PATH + TILE_HEAD + suffix + TILE_EXT;
         cell.appendChild(img);
-
 
         //Тело
         for (let i = 1; i < coordinates.length - 1; i++){
@@ -469,9 +448,7 @@ const cells = {
             const img = document.createElement('img');
             img.src = TILE_PATH + TILE_BODY + suffix1 + suffix2 + TILE_EXT;;
             cell.appendChild(img);
-
         }
-
 
         /**
          * Возвращает суффикс для имени файла тайла в зависимости от взаимоположениия клеток
@@ -497,10 +474,8 @@ const cells = {
                 case (dy === 1 || dy < -1):
                     suffix = TILE_UP;
                     break;
-                        
             }
             return suffix;
-
         }
     },
 
@@ -520,21 +495,14 @@ const cells = {
             const img = document.createElement('img');
             img.src = TILE_PATH + TILE_FOOD + TILE_EXT;;
             cell.appendChild(img);
-                        
         }
-    
     }
-    
-    
-    
-     
 };
 
 /**
  * Объект, представляющий змейку.
  */
 const snake = {
-
     /**
      * Текущее направление движение змейки.
      * По умолчанию: направо, потому змейка при старте занимает первые три клетки.
@@ -597,7 +565,8 @@ const snake = {
          * чтобы змейка выходя за границы возвращалась обратно на поле */
         if (position.top === -1) {
             position.top = config.size - 1;
-        } else if (position.top > config.size - 1) {
+        } 
+        else if (position.top > config.size - 1) {
             position.top = 0;
         }
 
@@ -606,7 +575,8 @@ const snake = {
          * чтобы змейка выходя за границы возвращалась обратно на поле */
         if (position.left === -1) {
             position.left = config.size - 1;
-        } else if (position.left > config.size - 1) {
+        } 
+        else if (position.left > config.size - 1) {
             position.left = 0;
         }
 
@@ -644,7 +614,6 @@ const snake = {
         this.parts.push({ top: 0, left: 2 });
 
         this.direction = SNAKE_DIRECTION_RIGHT;
-        
     },
 
     /**
@@ -659,7 +628,6 @@ const snake = {
  * Объект, представляющий еду для змейки.
  */
 const food = {
-
     /**
      * Содержит массив объектов с координатами еды на поле.
      */
@@ -710,8 +678,6 @@ const food = {
             left: getRandomNumber(0, config.size - 1)
         };
 
-        // добавить проверку нет ли у нас такого элемента
-
         this.items.push(newItem);
     },
 
@@ -742,7 +708,6 @@ function init() {
     /* добавляем обработчик при нажатии на любую кнопку на клавиатуре,
      * далее в методе мы будем проверять нужную нам клавишу */
     window.addEventListener('keydown', game.keysHandler.bind(game));
-
 }
 
 /**
@@ -766,7 +731,6 @@ function clearItem(item) {
     while (item.firstChild) {
         item.firstChild.remove();
     }
-    
 }
 
 window.addEventListener('load', init);
@@ -779,7 +743,6 @@ preloadImages([
     "body_l_d", "body_l_u", "body_r_d", "body_r_u",
     "body_u_l", "body_u_r", "body_d_l", "body_d_r",
     ]);
-
 
 /**
  * Предзагрузка изображений в кэш браузера
